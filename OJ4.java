@@ -54,3 +54,23 @@ public class Solution {
 
     
 }
+
+ public ListNode detectCycle(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+
+        Map<ListNode, Integer> map = new HashMap<>();
+        ListNode cur = head;
+       
+            while (cur != null) {
+                if (!map.containsKey(cur)) {
+                    map.put(cur, 1);
+                    cur = cur.next;
+                } else {
+                    return cur;
+                }
+            }
+        
+        return null;
+    }    
