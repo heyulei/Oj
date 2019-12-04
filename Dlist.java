@@ -11,6 +11,19 @@ public class Dlist {
 
     static class DList {
         DListNode node = new DListNode(-1);//傀儡节点
+        public static void addLast(DListNode head, int val) {
+            if (head.next == null) {
+                addFirst( head,val);
+                return;
+            }
+            DListNode newNode = new DListNode(val);
+
+            newNode.next = head;
+            newNode.pev = head.pre.next;
+            head.pre.next = newNode;
+            head.pre = newNode;
+
+        }
         public static void addFirst(DListNode head, int val) {
             if (head.next == null) {
                 DListNode newNode = new DListNode(val);
@@ -34,10 +47,10 @@ public class Dlist {
     }
     public static void main(String[] args) {
         DListNode head = new DListNode(-1);
-        DList.addFirst(head, 1);
-        DList.addFirst(head, 2);
-        DList.addFirst(head, 3);
-        DList.addFirst(head, 4);
+        DList.addLast (head, 1);
+        DList.addLast(head, 2);
+        DList.addLast(head, 3);
+        DList.addLast(head, 4);
     }
 }
 
