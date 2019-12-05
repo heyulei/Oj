@@ -48,7 +48,6 @@ public class TreeLinkNode {
 }*/
 
 
-
 /*
 public class TreeLinkNode {
     int val;
@@ -64,26 +63,23 @@ public class TreeLinkNode {
 public class Solution {
     public TreeLinkNode GetNext(TreeLinkNode pNode)
     {
-
-
+       
+            
             if(pNode.right!=null){
                     TreeLinkNode cur = pNode.right;
                     while (cur.left!=null){
                         cur = cur.left;
                     }
                     return cur;
-                }else {
+                }
                      TreeLinkNode cur = pNode;
-                    while (cur.next!=null&&cur.next.right == cur){
+                    while (cur.next!=null){
+                        if (cur.next.left == cur){
+                            return cur.next;
+                        }
+                            
                         cur = cur.next;
                     }
-                if(cur.next==null){
                     return null;
-                }else {
-                    return cur.next;
-                }
-
-
-        }
     }
 }
