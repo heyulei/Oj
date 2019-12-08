@@ -85,3 +85,4 @@ public class Dlist {
     }
 }
 
+Stack<Integer> stack = new Stack<>();
